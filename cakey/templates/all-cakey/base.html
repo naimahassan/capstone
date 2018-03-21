@@ -1,0 +1,31 @@
+{%load bootstrap3%}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
+  <title>Cakey - {{title}}</title>
+  {% else %}
+    <title> Cakey </title>
+  {% endif %}
+  {% block styles %}
+  {% bootstrap_css%}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  {%endblock%}
+</head>
+<body>
+  {% include "navbar.html"%}
+    {% block content%}
+    {%endblock%}
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+ 
+     {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>
