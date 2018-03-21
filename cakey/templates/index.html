@@ -1,4 +1,20 @@
 {%extends 'all-cakey/base.html' %}
+{%load bootstrap3%}
+{%load static%}
 {%block content%}
-<h1>cakeyyy</h1>
+{% for post_items in post%}
+<div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-md-6 col-lg-2">
+                <h3>{{post_items.name}}</h3>
+                <img src="{{post_items.image.url}}">
+                <p>{{post_items.caption}}</p>
+                <p>
+                        <a>view post</a>
+                      </p>
+    
+            </div>
+        </div>
+    </div>
+    {%endfor%}
 {%endblock%}
