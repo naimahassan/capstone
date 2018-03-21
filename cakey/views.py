@@ -10,4 +10,6 @@ def index(request):
     post = Post.get_post()
     return render(request, 'index.html',{"cake":cake,"post":post})
 
-    
+def post(request):
+    post = Post.get_post()
+    return render(request, 'all-cake/post.html',{"post":post})
