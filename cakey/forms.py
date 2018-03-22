@@ -1,7 +1,7 @@
-from . models import Recipe
+from . models import Post
 from django import forms
 
-class NewRecipeForm(forms.ModelForm):
+class NewPostForm(forms.ModelForm):
     class Meta:
-        model = Recipe
-        exclude = ['user']
+        model = Post
+        exclude = ['user']        
