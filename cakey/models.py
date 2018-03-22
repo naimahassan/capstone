@@ -11,7 +11,7 @@ class Profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null = True)
 
     def __str__(self):
-        return str(self.image)
+        return str(self.name)
 
     def create_profile(self):
         self.save
@@ -32,29 +32,12 @@ class Profile(models.Model):
         profile = Profile.objects.all()
         return profile          
 
-class Recipe(models.Model):
-    name = models.CharField(max_length = 90)
-    caption = models.CharField(max_length = 500)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null = True)
 
-    def __str__(self):
-        return str(self.name)
-
-    def create_recipe(self):
-        self.save
-
-    def delete_recipe(self):
-        self.delete    
-
-    @classmethod
-    def get_recipe(self):
-        recipe = Recipe.objects.all()
-        return recipe
      
 class Post(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE, null = True)
     image = models.ImageField(upload_to = 'post/', null = True, blank = True)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, null = True)
+    recipe = models.CharField(max_length = 100,null = True)
     
 
     def __str__(self):
