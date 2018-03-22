@@ -6,7 +6,9 @@ from . import views
 urlpatterns=[
     url('^$',views.index, name = 'index'),
     url('^$',views.post, name = 'post'),
-    url('^recipe',views.recipe, name = 'recipe'),
+    url('^detail(\d+)',views.detail, name = 'detail'),
+    url('^create/new_post',views.new_post, name = 'new_post'),
+    url('^profile',views.profile, name = 'profile' )
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, 
